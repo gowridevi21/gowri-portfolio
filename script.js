@@ -1,17 +1,87 @@
-const profilePhoto = document.getElementById("profilePhoto");
-const profileFallback = document.getElementById("profileFallback");
 
 
-if (profilePhoto) {
+/* MOBILE MENU */
 
-  profilePhoto.addEventListener("load", () => {
-    profileFallback.style.display = "none";
-    profilePhoto.style.display = "block";
+menuButton.addEventListener("click", () => {
+
+  mobileNav.classList.toggle("open");
+
+  const icon = menuButton.querySelector("i");
+
+  if (mobileNav.classList.contains("open")) {
+
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-xmark");
+
+  } else {
+
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+
+  }
+
+});
+
+
+document
+  .querySelectorAll(".mobile-nav a")
+  .forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+      mobileNav.classList.remove("open");
+
+      const icon = menuButton.querySelector("i");
+
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+
+    });
+
   });
 
-  profilePhoto.addEventListener("error", () => {
-    profilePhoto.style.display = "none";
-    profileFallback.style.display = "grid";
+
+/* ACTIVE NAVIGATION */
+
+const sections =
+  document.querySelectorAll("main section");
+
+const navLinks =
+  document.querySelectorAll(".desktop-nav a");
+
+
+window.addEventListener("scroll", () => {
+
+  let current = "home";
+
+  sections.forEach((section) => {
+
+    const top =
+      section.offsetTop - 120;
+
+    if (window.scrollY >= top) {
+
+      current =
+        section.getAttribute("id");
+
+    }
+
   });
 
-}
+
+  navLinks.forEach((link) => {
+
+    link.classList.remove("active");
+
+    if (
+      link.getAttribute("href") ===
+      `#${current}`
+    ) {
+
+      link.classList.add("active");
+
+    }
+
+  });
+
+});
