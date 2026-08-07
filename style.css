@@ -117,43 +117,26 @@ main {
 
 }
 
-
 .brand {
-
-  display: flex;
-
-  flex-direction: column;
-
   color: white;
-
   text-decoration: none;
-
-  font-size: 21px;
-
+  font-size: 20px;
   font-weight: 800;
-
-  line-height: 1.15;
-
+  line-height: 1.1;
+  white-space: nowrap;
 }
-
 
 .brand span {
-
   color: var(--blue-light);
-
 }
 
-
 .brand small {
-
-  margin-top: 5px;
-
+  display: block;
+  margin-top: 4px;
   color: var(--muted);
-
-  font-size: 11px;
-
+  font-size: 10px;
   font-weight: 400;
-
+  white-space: nowrap;
 }
 
 
