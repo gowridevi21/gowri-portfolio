@@ -70,18 +70,15 @@ main {
 }
 
 .brand-name {
-  display: block;
+    display: block;
+    white-space: nowrap;
 
-  white-space: nowrap;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
 
-  color: white;
-
-  font-size: 20px;
-  font-weight: 800;
-
-  line-height: 1;
+    letter-spacing: -1px;
 }
-
 .brand-name span {
   color: #55a5ff;
 }
