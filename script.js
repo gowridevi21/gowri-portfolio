@@ -33,7 +33,7 @@ window.addEventListener("scroll", () => {
   let current = "home";
 
   sections.forEach((section) => {
-    const top = section.offsetTop - 140;
+    const top = section.offsetTop - 130;
 
     if (window.scrollY >= top) {
       current = section.getAttribute("id");
