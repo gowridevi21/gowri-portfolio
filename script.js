@@ -1,11 +1,6 @@
-const menuButton = document.getElementById("menuButton");
-const mobileNav = document.getElementById("mobileNav");
-
 const profilePhoto = document.getElementById("profilePhoto");
 const profileFallback = document.getElementById("profileFallback");
 
-
-/* PROFILE IMAGE FALLBACK */
 
 if (profilePhoto) {
 
@@ -20,90 +15,3 @@ if (profilePhoto) {
   });
 
 }
-
-
-/* MOBILE MENU */
-
-menuButton.addEventListener("click", () => {
-
-  mobileNav.classList.toggle("open");
-
-  const icon = menuButton.querySelector("i");
-
-  if (mobileNav.classList.contains("open")) {
-
-    icon.classList.remove("fa-bars");
-    icon.classList.add("fa-xmark");
-
-  } else {
-
-    icon.classList.remove("fa-xmark");
-    icon.classList.add("fa-bars");
-
-  }
-
-});
-
-
-document
-  .querySelectorAll(".mobile-nav a")
-  .forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      mobileNav.classList.remove("open");
-
-      const icon = menuButton.querySelector("i");
-
-      icon.classList.remove("fa-xmark");
-      icon.classList.add("fa-bars");
-
-    });
-
-  });
-
-
-/* ACTIVE NAVIGATION */
-
-const sections =
-  document.querySelectorAll("main section");
-
-const navLinks =
-  document.querySelectorAll(".desktop-nav a");
-
-
-window.addEventListener("scroll", () => {
-
-  let current = "home";
-
-  sections.forEach((section) => {
-
-    const top =
-      section.offsetTop - 120;
-
-    if (window.scrollY >= top) {
-
-      current =
-        section.getAttribute("id");
-
-    }
-
-  });
-
-
-  navLinks.forEach((link) => {
-
-    link.classList.remove("active");
-
-    if (
-      link.getAttribute("href") ===
-      `#${current}`
-    ) {
-
-      link.classList.add("active");
-
-    }
-
-  });
-
-});
