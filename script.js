@@ -15,6 +15,7 @@ menuButton.addEventListener("click", () => {
   }
 });
 
+
 document.querySelectorAll(".mobile-nav a").forEach((link) => {
   link.addEventListener("click", () => {
     mobileNav.classList.remove("open");
@@ -26,17 +27,22 @@ document.querySelectorAll(".mobile-nav a").forEach((link) => {
   });
 });
 
-const sections = document.querySelectorAll("main section");
-const navLinks = document.querySelectorAll(".desktop-nav a");
 
-window.addEventListener("scroll", () => {
+const sections =
+  document.querySelectorAll("main section");
+
+const navLinks =
+  document.querySelectorAll(".desktop-nav a");
+
+
+function updateNavigation() {
   let current = "home";
 
   sections.forEach((section) => {
     const top = section.offsetTop - 130;
 
     if (window.scrollY >= top) {
-      current = section.getAttribute("id");
+      current = section.id;
     }
   });
 
@@ -47,4 +53,29 @@ window.addEventListener("scroll", () => {
       link.classList.add("active");
     }
   });
+}
+
+window.addEventListener("scroll", updateNavigation);
+updateNavigation();
+
+
+const revealItems =
+  document.querySelectorAll(".reveal");
+
+const observer =
+  new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.08
+    }
+  );
+
+revealItems.forEach((item) => {
+  observer.observe(item);
 });
