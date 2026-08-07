@@ -71,6 +71,7 @@ main {
 
 .brand-name {
   display: block;
+
   white-space: nowrap;
 
   color: white;
@@ -81,8 +82,8 @@ main {
   line-height: 1;
 }
 
-.brand-name strong {
-  color: var(--blue-light);
+.brand-name span {
+  color: #55a5ff;
 }
 
 .brand small {
@@ -90,14 +91,13 @@ main {
 
   margin-top: 6px;
 
-  color: var(--muted);
+  white-space: nowrap;
+
+  color: #8492a5;
 
   font-size: 10px;
   font-weight: 400;
-
-  white-space: nowrap;
 }
-
 .desktop-nav {
   display: flex;
   align-items: center;
