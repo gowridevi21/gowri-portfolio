@@ -1,6 +1,29 @@
 const menuButton = document.getElementById("menuButton");
 const mobileNav = document.getElementById("mobileNav");
 
+const profilePhoto = document.getElementById("profilePhoto");
+const profileFallback = document.getElementById("profileFallback");
+
+
+/* PROFILE IMAGE FALLBACK */
+
+if (profilePhoto) {
+
+  profilePhoto.addEventListener("load", () => {
+    profileFallback.style.display = "none";
+    profilePhoto.style.display = "block";
+  });
+
+  profilePhoto.addEventListener("error", () => {
+    profilePhoto.style.display = "none";
+    profileFallback.style.display = "grid";
+  });
+
+}
+
+
+/* MOBILE MENU */
+
 menuButton.addEventListener("click", () => {
 
   mobileNav.classList.toggle("open");
@@ -22,37 +45,46 @@ menuButton.addEventListener("click", () => {
 });
 
 
-document.querySelectorAll(".mobile-nav a").forEach((link) => {
+document
+  .querySelectorAll(".mobile-nav a")
+  .forEach((link) => {
 
-  link.addEventListener("click", () => {
+    link.addEventListener("click", () => {
 
-    mobileNav.classList.remove("open");
+      mobileNav.classList.remove("open");
 
-    const icon = menuButton.querySelector("i");
+      const icon = menuButton.querySelector("i");
 
-    icon.classList.remove("fa-xmark");
-    icon.classList.add("fa-bars");
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+
+    });
 
   });
 
-});
 
+/* ACTIVE NAVIGATION */
 
-const sections = document.querySelectorAll("main section");
-const navLinks = document.querySelectorAll(".desktop-nav a");
+const sections =
+  document.querySelectorAll("main section");
+
+const navLinks =
+  document.querySelectorAll(".desktop-nav a");
 
 
 window.addEventListener("scroll", () => {
 
-  let currentSection = "home";
+  let current = "home";
 
   sections.forEach((section) => {
 
-    const sectionTop = section.offsetTop - 130;
+    const top =
+      section.offsetTop - 120;
 
-    if (window.scrollY >= sectionTop) {
+    if (window.scrollY >= top) {
 
-      currentSection = section.getAttribute("id");
+      current =
+        section.getAttribute("id");
 
     }
 
@@ -65,7 +97,7 @@ window.addEventListener("scroll", () => {
 
     if (
       link.getAttribute("href") ===
-      `#${currentSection}`
+      `#${current}`
     ) {
 
       link.classList.add("active");
