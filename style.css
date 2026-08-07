@@ -1,3 +1,29 @@
+/* =========================================
+   GOWRI DEVI KANITHI - PORTFOLIO
+========================================= */
+
+:root {
+  --bg: #070d17;
+  --bg-secondary: #0b1422;
+  --card: #101a29;
+  --card-hover: #142238;
+
+  --border: rgba(255, 255, 255, 0.10);
+
+  --text: #f5f7fa;
+  --text-secondary: #a9b4c3;
+
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,362 +35,500 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-  line-height: 1.7;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(59, 130, 246, 0.10),
+      transparent 28%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  line-height: 1.65;
 }
 
-/* =========================
-   HEADER / NAVIGATION
-========================= */
+
+/* =========================================
+   HEADER
+========================================= */
 
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(15, 23, 42, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #1e293b;
+
+  background: rgba(7, 13, 23, 0.92);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--border);
 }
 
 nav {
-  max-width: 1150px;
+  width: min(94%, 1380px);
+
   margin: auto;
-  padding: 18px 25px;
+
+  min-height: 72px;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
 }
 
 nav h2 {
-  color: #38bdf8;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+
+  color: var(--text);
+}
+
+nav h2::first-letter {
+  color: var(--blue-light);
 }
 
 nav ul {
   list-style: none;
 
   display: flex;
-  gap: 22px;
+  align-items: center;
 
-  flex-wrap: wrap;
+  gap: 32px;
 }
 
 nav a {
-  color: #e2e8f0;
+  position: relative;
+
+  color: #d7deea;
+
   text-decoration: none;
-  font-size: 15px;
-  transition: 0.3s;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.25s ease;
 }
 
 nav a:hover {
-  color: #38bdf8;
+  color: var(--blue-light);
 }
 
-/* =========================
+nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--blue);
+
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================
    MAIN
-========================= */
+========================================= */
 
 main {
-  max-width: 1150px;
+  width: min(94%, 1380px);
   margin: auto;
-  padding: 0 25px;
 }
 
 section {
-  padding: 90px 0;
+  padding: 60px 0;
+}
+
+section + section {
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
 }
 
 section h2 {
-  font-size: 38px;
-  margin-bottom: 30px;
-  color: #f8fafc;
+  font-size: 32px;
+  font-weight: 750;
+
+  letter-spacing: -0.8px;
+
+  margin-bottom: 28px;
+
+  color: var(--text);
 }
 
 section h2::after {
   content: "";
+
   display: block;
 
-  width: 55px;
+  width: 42px;
   height: 3px;
 
-  margin-top: 10px;
+  margin-top: 9px;
 
-  background: #38bdf8;
+  border-radius: 50px;
 
-  border-radius: 10px;
+  background: var(--blue);
 }
 
-/* =========================
-   HERO SECTION
-========================= */
+
+/* =========================================
+   HERO
+========================================= */
 
 .hero {
-  min-height: 88vh;
+  min-height: auto;
+
+  padding-top: 75px;
+  padding-bottom: 70px;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .hero-content {
-  max-width: 850px;
+  max-width: 930px;
 }
 
 .intro-text {
-  color: #38bdf8;
-  font-size: 20px;
+  color: var(--blue-light);
+
+  font-size: 21px;
   font-weight: 600;
+
   margin-bottom: 8px;
 }
 
 .hero h1 {
-  font-size: clamp(50px, 8vw, 82px);
-  line-height: 1.05;
+  font-size: clamp(52px, 6vw, 82px);
 
-  margin-bottom: 15px;
+  line-height: 0.98;
 
-  background: linear-gradient(
-    90deg,
-    #ffffff,
-    #38bdf8
-  );
+  letter-spacing: -2.5px;
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+
+  color: #ffffff;
+
+  background: none;
+
+  -webkit-text-fill-color: initial;
 }
 
 .hero h3 {
-  font-size: 29px;
-  color: #38bdf8;
-  margin-bottom: 20px;
+  font-size: 27px;
+
+  margin-bottom: 18px;
+
+  color: #f5f7fa;
+
+  font-weight: 650;
 }
 
 .hero h3 span {
-  color: #94a3b8;
-  font-size: 21px;
+  font-size: 18px;
+
+  color: var(--text-secondary);
+
+  font-weight: 500;
 }
 
 .hero-description {
   max-width: 760px;
 
-  color: #cbd5e1;
+  color: var(--text-secondary);
 
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 17px;
+
+  line-height: 1.7;
 }
 
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
 .hero-buttons {
-  margin-top: 32px;
+  margin-top: 28px;
 
   display: flex;
-  gap: 15px;
-
   flex-wrap: wrap;
+
+  gap: 12px;
 }
 
 .btn {
-  display: inline-block;
+  min-width: 145px;
 
-  padding: 12px 22px;
+  padding: 12px 19px;
 
-  background: #38bdf8;
-  color: #0f172a;
+  display: inline-flex;
 
-  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+
+  color: white;
+
+  border: 1px solid var(--blue);
+
+  border-radius: 7px;
 
   text-decoration: none;
-  font-weight: 700;
 
-  transition: 0.3s;
+  font-size: 14px;
+  font-weight: 650;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  background: #2563eb;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(59, 130, 246, 0.24);
 }
 
 .btn.secondary {
   background: transparent;
 
-  color: #38bdf8;
+  color: #e5ebf3;
 
-  border: 1px solid #38bdf8;
+  border-color: rgba(96, 165, 250, 0.75);
 }
 
 .btn.secondary:hover {
-  background: rgba(56, 189, 248, 0.08);
+  background: rgba(59, 130, 246, 0.10);
+
+  color: white;
 }
 
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
 .social-links {
-  margin-top: 28px;
+  margin-top: 23px;
 
   display: flex;
-  gap: 24px;
+  align-items: center;
 
-  flex-wrap: wrap;
+  gap: 26px;
 }
 
 .social-links a {
-  color: #94a3b8;
+  color: #c6cfda;
+
   text-decoration: none;
 
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 550;
 
-  transition: 0.3s;
+  transition: 0.25s ease;
 }
 
 .social-links a:hover {
-  color: #38bdf8;
+  color: var(--blue-light);
 }
 
-/* =========================
+
+/* =========================================
    ABOUT
-========================= */
+========================================= */
+
+#about {
+  max-width: 1050px;
+}
 
 #about p {
-  max-width: 900px;
+  max-width: 930px;
 
-  margin-bottom: 18px;
+  margin-bottom: 13px;
 
-  font-size: 17px;
+  color: var(--text-secondary);
 
-  color: #cbd5e1;
+  font-size: 16px;
+
+  line-height: 1.75;
 }
 
-/* =========================
-   SKILLS
-========================= */
+
+/* =========================================
+   SKILL HEADINGS
+========================================= */
 
 .skill-category {
-  margin-top: 35px;
-  margin-bottom: 18px;
+  margin-top: 29px;
+  margin-bottom: 13px;
 
-  color: #38bdf8;
+  color: #dce6f3;
 
-  font-size: 21px;
+  font-size: 17px;
+  font-weight: 650;
 }
+
+
+/* =========================================
+   SKILLS GRID
+========================================= */
 
 .skills-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(170px, 1fr));
+    repeat(auto-fit, minmax(165px, 1fr));
 
-  gap: 14px;
+  gap: 10px;
 }
 
 .skills-grid span {
-  padding: 14px 15px;
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  padding: 12px 13px;
+
+  color: #dce4ee;
 
   text-align: center;
 
-  background: #1e293b;
+  font-size: 14px;
+  font-weight: 550;
 
-  border: 1px solid #334155;
-
-  border-radius: 10px;
-
-  color: #e2e8f0;
-
-  transition: 0.3s;
+  transition: 0.25s ease;
 }
 
 .skills-grid span:hover {
-  transform: translateY(-4px);
+  background: var(--card-hover);
 
-  border-color: #38bdf8;
+  border-color: rgba(96, 165, 250, 0.55);
 
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
 }
 
-/* =========================
-   CARDS
-========================= */
+
+/* =========================================
+   GENERAL CARDS
+========================================= */
 
 .card {
-  background: #1e293b;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 28, 44, 0.96),
+      rgba(11, 20, 34, 0.96)
+    );
 
-  border: 1px solid #334155;
+  border: 1px solid var(--border);
 
-  border-radius: 14px;
+  border-radius: 12px;
 
-  padding: 28px;
+  padding: 24px;
 
-  transition: 0.3s;
+  box-shadow: var(--shadow);
 
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
 
-  border-color: #38bdf8;
+  border-color: rgba(96, 165, 250, 0.45);
 
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.2);
+  background: var(--card-hover);
 }
 
 .card h3 {
-  color: #38bdf8;
+  color: #f3f6fa;
 
-  font-size: 23px;
+  font-size: 20px;
+
+  margin-bottom: 5px;
+}
+
+.card h4 {
+  color: var(--blue-light);
+
+  font-size: 15px;
 
   margin-bottom: 8px;
 }
 
-.card h4 {
-  color: #f8fafc;
-
-  font-size: 17px;
-
-  margin-bottom: 10px;
-}
-
 .card p {
-  color: #cbd5e1;
-}
-
-/* =========================
-   EXPERIENCE
-========================= */
-
-.experience-card {
-  margin-bottom: 24px;
-}
-
-.experience-date {
-  color: #94a3b8 !important;
-
-  margin-bottom: 18px;
+  color: var(--text-secondary);
 
   font-size: 15px;
 }
 
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+.experience-card {
+  margin-bottom: 16px;
+}
+
+.experience-date {
+  margin-bottom: 15px;
+
+  color: #78879b !important;
+
+  font-size: 13px !important;
+}
+
 .experience-list {
-  padding-left: 20px;
+  padding-left: 19px;
 }
 
 .experience-list li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 
-  color: #cbd5e1;
+  color: var(--text-secondary);
+
+  font-size: 15px;
 }
 
-/* =========================
+
+/* =========================================
    PROJECTS
-========================= */
+========================================= */
 
 .projects-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(290px, 1fr));
+    repeat(2, minmax(0, 1fr));
 
-  gap: 22px;
+  gap: 16px;
 }
 
 .project-card {
@@ -372,77 +536,84 @@ section h2::after {
 }
 
 .project-card p {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .project-tech {
-  display: inline-block;
+  width: fit-content;
 
-  margin: 8px 0 16px !important;
+  padding: 6px 10px;
 
-  padding: 7px 11px;
+  margin: 10px 0 14px !important;
 
-  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.09);
 
-  background: rgba(56, 189, 248, 0.1);
+  color: var(--blue-light) !important;
 
-  color: #38bdf8 !important;
+  border: 1px solid rgba(59, 130, 246, 0.18);
 
-  font-size: 14px;
+  border-radius: 6px;
+
+  font-size: 12px !important;
 
   font-weight: 600;
 }
 
-/* =========================
+
+/* =========================================
    EDUCATION
-========================= */
+========================================= */
 
 .education-card {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .education-courses {
-  margin-top: 16px;
+  margin-top: 12px;
 
-  color: #94a3b8 !important;
+  color: #8795a7 !important;
 }
 
-/* =========================
+
+/* =========================================
    CERTIFICATIONS
-========================= */
+========================================= */
 
 #certifications .card {
-  max-width: 700px;
+  max-width: 720px;
 }
 
-/* =========================
+
+/* =========================================
    CONTACT
-========================= */
+========================================= */
 
 #contact > p {
   max-width: 760px;
 
-  margin-bottom: 28px;
+  color: var(--text-secondary);
 
-  color: #cbd5e1;
+  margin-bottom: 22px;
 
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .contact-links {
-  background: #1e293b;
+  max-width: 780px;
 
-  border: 1px solid #334155;
+  padding: 22px;
 
-  border-radius: 14px;
+  background: var(--card);
 
-  padding: 26px;
+  border: 1px solid var(--border);
 
-  max-width: 800px;
+  border-radius: 10px;
 }
 
 .contact-links p {
-  margin-bottom: 14px;
+  margin-bottom: 10px;
+
+  color: var(--text-secondary);
 }
 
 .contact-links p:last-child {
@@ -450,11 +621,15 @@ section h2::after {
 }
 
 .contact-links strong {
-  color: #f8fafc;
+  display: inline-block;
+
+  min-width: 92px;
+
+  color: #f2f5f8;
 }
 
 .contact-links a {
-  color: #38bdf8;
+  color: var(--blue-light);
 
   text-decoration: none;
 }
@@ -463,73 +638,44 @@ section h2::after {
   text-decoration: underline;
 }
 
-/* =========================
+
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
+  width: min(94%, 1380px);
+
+  margin: 20px auto 0;
+
+  padding: 27px 0;
+
   text-align: center;
 
-  padding: 30px 20px;
+  border-top: 1px solid var(--border);
 
-  border-top: 1px solid #1e293b;
+  color: #667387;
 
-  color: #64748b;
-
-  margin-top: 40px;
+  font-size: 13px;
 }
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
 
-@media (max-width: 900px) {
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
 
   nav {
     flex-direction: column;
 
-    gap: 14px;
+    padding: 15px 0;
   }
 
   nav ul {
     justify-content: center;
-  }
 
-}
-
-
-@media (max-width: 768px) {
-
-  section {
-    padding: 70px 0;
-  }
-
-  section h2 {
-    font-size: 32px;
-  }
-
-  .hero {
-    min-height: 78vh;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-  }
-
-  .hero h3 {
-    font-size: 23px;
-  }
-
-  .hero h3 span {
-    display: block;
-
-    margin-top: 6px;
-
-    font-size: 18px;
-  }
-
-  .hero-description {
-    font-size: 17px;
+    gap: 20px;
   }
 
   .projects-grid {
@@ -539,56 +685,100 @@ footer {
 }
 
 
-@media (max-width: 520px) {
+/* =========================================
+   MOBILE
+========================================= */
 
-  main {
-    padding: 0 18px;
+@media (max-width: 700px) {
+
+  main,
+  nav,
+  footer {
+    width: min(92%, 1380px);
   }
 
-  nav {
-    padding: 15px 18px;
+  section {
+    padding: 45px 0;
   }
 
-  nav ul {
-    gap: 12px;
-  }
-
-  nav a {
-    font-size: 14px;
+  .hero {
+    padding-top: 55px;
+    padding-bottom: 50px;
   }
 
   .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
+    letter-spacing: -1.5px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: flex-start;
+  .hero h3 {
+    font-size: 21px;
   }
 
-  .btn {
-    width: 100%;
+  .hero h3 span {
+    display: block;
 
-    text-align: center;
+    margin-top: 4px;
+
+    font-size: 16px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  section h2 {
+    font-size: 28px;
   }
 
   .skills-grid {
     grid-template-columns:
-      repeat(2, 1fr);
+      repeat(2, minmax(0, 1fr));
   }
 
-  .card {
-    padding: 22px;
+  .hero-buttons {
+    gap: 9px;
+  }
+
+  .btn {
+    min-width: auto;
   }
 
 }
 
 
-@media (max-width: 390px) {
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 440px) {
+
+  nav ul {
+    gap: 13px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
 
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    gap: 18px;
   }
 
 }
